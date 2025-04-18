@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://127.0.0.1:3002") // 允许来自前端的请求
+@CrossOrigin(origins = {
+        "https://cs272-s25.github.io",
+        "http://127.0.0.1"
+})
 public class BackendController {
 
     @Autowired

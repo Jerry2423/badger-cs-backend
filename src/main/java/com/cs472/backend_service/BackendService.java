@@ -18,4 +18,15 @@ public class BackendService {
         }
         return null;
     }
+
+    public User registerUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public boolean userExists(String email) {
+        if (userRepository.findByEmail(email) != null) {
+            return true;
+        }
+        return false;
+    }
 }

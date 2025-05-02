@@ -43,4 +43,13 @@ public class BackendController {
             ));
         }
     }
+
+    @PostMapping("signup")
+    public ResponseEntity<Map<String, Object>> signUp(@RequestBody User credentials) {
+        if (backendService.userExists(credentials.getEmail())) {
+            return ResponseEntity.status(409).body(Map.of("message", "Email already in use"));
+        }
+        backendService.registerUser(credentials);
+        return ResponseEntity.ok(Map.of());
+    }
 }

@@ -32,7 +32,9 @@ public class BackendController {
             return ResponseEntity.ok(Map.of(
                     "status", "success",
                     "userId", user.getId(),
-                    "message", "Authenticated"
+                    "message", "Authenticated",
+                        "nickname", user.getNickname(),
+                    "email", user.getEmail()
             ));
         } else {
             return ResponseEntity.status(401).body(Map.of(
